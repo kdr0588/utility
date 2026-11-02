@@ -1,0 +1,99 @@
+# Copy this file to houses.toml and fill in your real details.
+# houses.toml is in .gitignore, so tenant names and emails never get committed.
+# Passwords do NOT go here. They go in .env (see .env.example).
+
+# Where the bill history is saved. Each house gets its own sheet.
+workbook = "bills.xlsx"
+
+[landlord]
+name = "Your Name"
+etransfer_email = "you@example.com"
+
+# Optional extra line at the top of the email, by rent month.
+[greetings]
+November = "Hope you had a great long weekend!"
+December = "Merry Christmas!"
+
+
+# ---------------------------------------------------------------- House 58
+[[houses]]
+id = "58"              # short id used with --house 58
+name = "58 House"      # shown in emails and used as the sheet name
+
+# source can be:
+#   enbridge  log in to Enbridge Gas and read the latest bill
+#   alectra   log in to Alectra Utilities and read the amount due
+#   fixed     the same amount every month (set amount)
+#   manual    ask you to type the amount each run
+[[houses.utilities]]
+name = "Gas"
+source = "enbridge"
+username_env = "HOUSE58_GAS_USERNAME"
+password_env = "HOUSE58_GAS_PASSWORD"
+
+[[houses.utilities]]
+name = "Electricity"
+source = "alectra"
+username_env = "HOUSE58_ELECTRICITY_ACCOUNT"
+password_env = "HOUSE58_ELECTRICITY_PASSWORD"
+
+[[houses.utilities]]
+name = "Internet"
+source = "fixed"
+amount = 45.00
+
+# share is the part of each bill the tenant pays (0.22 means 22%).
+# Shares can add up to less than 100%; the rest is shown as "Not charged to
+# tenants". Leave share out for every tenant to split the bills evenly.
+[[houses.tenants]]
+name = "Upstairs A"
+email = "upstairs.a@example.com"
+rent = 1300
+share = 0.22
+
+[[houses.tenants]]
+name = "Upstairs B"
+email = "upstairs.b@example.com"
+rent = 1300
+share = 0.22
+
+[[houses.tenants]]
+name = "Master"
+email = "master@example.com"
+rent = 1500
+share = 0.22
+
+
+# ---------------------------------------------------------------- House 23
+[[houses]]
+id = "23"
+name = "23 House"
+
+[[houses.utilities]]
+name = "Gas"
+source = "enbridge"
+username_env = "HOUSE23_GAS_USERNAME"
+password_env = "HOUSE23_GAS_PASSWORD"
+
+[[houses.utilities]]
+name = "Electricity"
+source = "alectra"
+username_env = "HOUSE23_ELECTRICITY_ACCOUNT"
+password_env = "HOUSE23_ELECTRICITY_PASSWORD"
+
+[[houses.utilities]]
+name = "Internet"
+source = "fixed"
+amount = 45.00
+
+[[houses.tenants]]
+name = "Downstairs A"
+email = "downstairs.a@example.com"
+rent = 1350
+share = 0.25
+
+[[houses.tenants]]
+name = "Downstairs B"
+email = "downstairs.b@example.com"
+rent = 1300
+share = 0.25
