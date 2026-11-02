@@ -1,0 +1,9 @@
+[project]
+name = "utilities-automator"
+version = "1.0.0"
+description = "Split utility bills between tenants in two houses and email what each one owes."
+requires-python = ">=3.11"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]

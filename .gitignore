@@ -1,4 +1,12 @@
-**.env
-__pycache__/messages.cpython-310.pyc
-__pycache__/web_scrape.cpython-310-SURF.pyc
-__pycache__/web_scrape.cpython-310.pyc
+# Secrets and personal data: never commit these
+.env
+houses.toml
+*.xlsx
+debug/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+.pytest_cache/
